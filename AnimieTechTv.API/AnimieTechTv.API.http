@@ -1,0 +1,6 @@
+@AnimieTechTv.API_HostAddress = http://localhost:5268
+
+GET {{AnimieTechTv.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

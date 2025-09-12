@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36414.22 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimieTechTv.API", "AnimieTechTv.API\AnimieTechTv.API.csproj", "{CE93A6AF-440E-46A6-A434-1B0C243BB5D2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CE93A6AF-440E-46A6-A434-1B0C243BB5D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE93A6AF-440E-46A6-A434-1B0C243BB5D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE93A6AF-440E-46A6-A434-1B0C243BB5D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE93A6AF-440E-46A6-A434-1B0C243BB5D2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4E12A028-B6E9-4AF8-BDB3-4EE9DA6B45A8}
+	EndGlobalSection
+EndGlobal
