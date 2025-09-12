@@ -26,18 +26,21 @@ builder.WebHost.ConfigureKestrel(options =>
 
 var dbInitializer = new DbInitializer(builder.Configuration);
 
-await dbInitializer.EnsureDataBaseAsync();
+await dbInitializer.EnsureDatabaseAsync();
 
 var app = builder.Build();
 
 FluentMigratiorConfig.MigrateDatabase(app.Services);
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+//if (app.Environment.IsDevelopment())
+//{
+//    app.UseSwagger();
+//    app.UseSwaggerUI();
+//}
+
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
 
