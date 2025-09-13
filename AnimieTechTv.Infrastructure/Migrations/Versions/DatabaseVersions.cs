@@ -1,4 +1,4 @@
-﻿namespace AnimieTechTv.API.Infrastructure.Migrations;
+﻿namespace AnimieTechTv.Infrastructure.Migrations.Versions;
 
 public abstract class DatabaseVersions
 {

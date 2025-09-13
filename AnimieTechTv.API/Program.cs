@@ -1,6 +1,8 @@
-using AnimieTechTv.API.Infrastructure.Data;
-using MediatR;
-using Microsoft.EntityFrameworkCore;
+using AnimieTechTv.API.Filters;
+using AnimieTechTv.Application;
+using AnimieTechTv.Infrastructure;
+using AnimieTechTv.Infrastructure.Extensions;
+using AnimieTechTv.Infrastructure.Migrations;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,26 +13,24 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<AppDbContext>(opt =>
-    opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
-);
+builder.Services.AddControllers()
+    .ConfigureApiBehaviorOptions(options =>
+    {
+        options.SuppressModelStateInvalidFilter = true;
+    });
 
-builder.Services.AddMediatR(typeof(Program));
+builder.Services.AddApplicationServices();
+builder.Services.AddInfrastructure(builder.Configuration);
 
-builder.Services.AddFluentMigrator(builder.Configuration);  
+
+builder.Services.AddMvc(options => options.Filters.Add(typeof(ExceptionFilter)));
 
 builder.WebHost.ConfigureKestrel(options =>
-{
+{ 
     options.ListenAnyIP(8080);
 });
 
-var dbInitializer = new DbInitializer(builder.Configuration);
-
-await dbInitializer.EnsureDatabaseAsync();
-
 var app = builder.Build();
-
-FluentMigratiorConfig.MigrateDatabase(app.Services);
 
 // Configure the HTTP request pipeline.
 //if (app.Environment.IsDevelopment())
@@ -48,4 +48,16 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+MigrateDatabase();
+
 app.Run();
+
+void MigrateDatabase()
+{
+    var configuration = builder.Configuration;
+
+    var serviceScope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope();
+
+
+    DatabaseMigration.Migrate(configuration.ConnectionString(), serviceScope.ServiceProvider);
+}

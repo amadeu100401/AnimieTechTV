@@ -1,6 +1,6 @@
-﻿namespace AnimieTechTv.API.Models.Requests;
+﻿namespace AnimieTechTv.Domain.Entities;
 
-public class CreateAnimieRequest
+public class Animies : BaseEntity
 {
     public string Name { get; set; } = string.Empty;
     public string Director { get; set; } = string.Empty;
