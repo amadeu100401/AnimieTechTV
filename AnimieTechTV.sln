@@ -3,19 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36414.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimieTechTv.API", "AnimieTechTv.API\AnimieTechTv.API.csproj", "{CE93A6AF-440E-46A6-A434-1B0C243BB5D2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimieTechTv.API", "src\backend\AnimieTechTv.API\AnimieTechTv.API.csproj", "{CE93A6AF-440E-46A6-A434-1B0C243BB5D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimieTechTv.Application", "AnimieTechTv.Application\AnimieTechTv.Application.csproj", "{9704FE6B-9D6D-45A5-9320-F7A106FE583B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimieTechTv.Application", "src\backend\AnimieTechTv.Application\AnimieTechTv.Application.csproj", "{9704FE6B-9D6D-45A5-9320-F7A106FE583B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimieTechTv.Exceptions", "AnimieTechTv.Exceptions\AnimieTechTv.Exceptions.csproj", "{E27FB2D9-1055-49A5-9CC3-F8ABD80FE060}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimieTechTv.Exceptions", "src\shared\AnimieTechTv.Exceptions\AnimieTechTv.Exceptions.csproj", "{E27FB2D9-1055-49A5-9CC3-F8ABD80FE060}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimieTechTv.Communication", "AnimieTechTv.Communication\AnimieTechTv.Communication.csproj", "{37729F59-F754-40B0-A209-B00F5B464B9E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimieTechTv.Communication", "src\shared\AnimieTechTv.Communication\AnimieTechTv.Communication.csproj", "{37729F59-F754-40B0-A209-B00F5B464B9E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimieTechTv.Domain", "AnimieTechTv.Domain\AnimieTechTv.Domain.csproj", "{D3D266C4-DBB7-445C-96D8-8EDC9DA5F61E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimieTechTv.Domain", "src\backend\AnimieTechTv.Domain\AnimieTechTv.Domain.csproj", "{D3D266C4-DBB7-445C-96D8-8EDC9DA5F61E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimieTechTv.Infrastructure", "AnimieTechTv.Infrastructure\AnimieTechTv.Infrastructure.csproj", "{8A762F0D-5D8D-464B-8AF9-113ECFB5E84E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimieTechTv.Infrastructure", "src\backend\AnimieTechTv.Infrastructure\AnimieTechTv.Infrastructure.csproj", "{8A762F0D-5D8D-464B-8AF9-113ECFB5E84E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimieTechTv.Tests", "AnimieTechTv.Tests\AnimieTechTv.Tests.csproj", "{8F0E34AD-F658-438B-826A-230D156C67ED}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "backend", "backend", "{A62DD8E1-BA6C-42DB-86B0-629B89F00DFE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "shared", "shared", "{D29DFE12-B1F9-4C81-830D-A331AEBA5106}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -54,6 +60,16 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CE93A6AF-440E-46A6-A434-1B0C243BB5D2} = {A62DD8E1-BA6C-42DB-86B0-629B89F00DFE}
+		{9704FE6B-9D6D-45A5-9320-F7A106FE583B} = {A62DD8E1-BA6C-42DB-86B0-629B89F00DFE}
+		{E27FB2D9-1055-49A5-9CC3-F8ABD80FE060} = {D29DFE12-B1F9-4C81-830D-A331AEBA5106}
+		{37729F59-F754-40B0-A209-B00F5B464B9E} = {D29DFE12-B1F9-4C81-830D-A331AEBA5106}
+		{D3D266C4-DBB7-445C-96D8-8EDC9DA5F61E} = {A62DD8E1-BA6C-42DB-86B0-629B89F00DFE}
+		{8A762F0D-5D8D-464B-8AF9-113ECFB5E84E} = {A62DD8E1-BA6C-42DB-86B0-629B89F00DFE}
+		{A62DD8E1-BA6C-42DB-86B0-629B89F00DFE} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{D29DFE12-B1F9-4C81-830D-A331AEBA5106} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4E12A028-B6E9-4AF8-BDB3-4EE9DA6B45A8}
