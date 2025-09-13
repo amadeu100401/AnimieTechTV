@@ -1,6 +1,6 @@
 ﻿using FluentMigrator;
 
-namespace AnimieTechTv.API.Infrastructure.Migrations;
+namespace AnimieTechTv.Infrastructure.Migrations.Versions;
 
 [Migration(DatabaseVersions.TABLE_ANIMIE, "Create animie table")]
 public class Version0000001 : VersionBase

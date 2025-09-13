@@ -22,7 +22,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Commands\" />
+    <ProjectReference Include="..\AnimieTechTv.Application\AnimieTechTv.Application.csproj" />
+    <ProjectReference Include="..\AnimieTechTv.Communication\AnimieTechTv.Communication.csproj" />
+    <ProjectReference Include="..\AnimieTechTv.Exceptions\AnimieTechTv.Exceptions.csproj" />
+    <ProjectReference Include="..\AnimieTechTv.Infrastructure\AnimieTechTv.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
