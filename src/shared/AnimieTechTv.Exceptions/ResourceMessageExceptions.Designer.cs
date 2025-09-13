@@ -61,6 +61,15 @@ namespace AnimieTechTv.Exceptions {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All filters are null.
+        /// </summary>
+        public static string ALL_FILTERS_ARE_NULL {
+            get {
+                return ResourceManager.GetString("ALL_FILTERS_ARE_NULL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Animie already registered.
         /// </summary>
         public static string ANIMIE_ALREADY_ADDED {
@@ -72,7 +81,7 @@ namespace AnimieTechTv.Exceptions {
         /// <summary>
         ///   Looks up a localized string similar to Error on delete animie.
         /// </summary>
-        public static string ANIMIE_ERROR_ON_DELETED {
+        public static string ANIMIE_CANNOT_BE_DELETED {
             get {
                 return ResourceManager.GetString("ANIMIE_CANNOT_BE_DELETED", resourceCulture);
             }
@@ -102,6 +111,15 @@ namespace AnimieTechTv.Exceptions {
         public static string ANIMIE_DIRECTOR_NAME_REQUIRED {
             get {
                 return ResourceManager.GetString("ANIMIE_DIRECTOR_NAME_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An error occurred while trying to delete the anime.
+        /// </summary>
+        public static string ANIMIE_ERROR_ON_DELETE {
+            get {
+                return ResourceManager.GetString("ANIMIE_ERROR_ON_DELETE", resourceCulture);
             }
         }
         

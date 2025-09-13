@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ALL_FILTERS_ARE_NULL" xml:space="preserve">
+    <value>All filters are null</value>
+  </data>
   <data name="ANIMIE_ALREADY_ADDED" xml:space="preserve">
     <value>Animie already registered</value>
   </data>
@@ -131,6 +134,9 @@
   </data>
   <data name="ANIMIE_DIRECTOR_NAME_REQUIRED" xml:space="preserve">
     <value>Director is required</value>
+  </data>
+  <data name="ANIMIE_ERROR_ON_DELETE" xml:space="preserve">
+    <value>An error occurred while trying to delete the anime</value>
   </data>
   <data name="ANIMIE_ID_REQUIRED" xml:space="preserve">
     <value>The Animie ID is required</value>

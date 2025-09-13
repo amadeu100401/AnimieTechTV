@@ -16,7 +16,7 @@ public class DeleteAnimieHandler : IRequestHandler<DeleteAnimieCommand, bool>
     {
         var isDeleted = await _animieDeleteRepository.DeleteAnimieByIdAsync(request.Id);
 
-        if (!isDeleted) throw new AnimieTechTVException(ResourceMessageExceptions.ANIMIE_ERROR_ON_DELETED);
+        if (!isDeleted) throw new AnimieTechTVException(ResourceMessageExceptions.ANIMIE_ERROR_ON_DELETE);
 
         return isDeleted;
     }
