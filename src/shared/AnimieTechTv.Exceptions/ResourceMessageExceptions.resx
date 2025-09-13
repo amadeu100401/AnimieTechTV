@@ -120,6 +120,9 @@
   <data name="ANIMIE_ALREADY_ADDED" xml:space="preserve">
     <value>Animie already registered</value>
   </data>
+  <data name="ANIMIE_CANNOT_BE_DELETED" xml:space="preserve">
+    <value>Error on delete animie</value>
+  </data>
   <data name="ANIMIE_CHARACTER" xml:space="preserve">
     <value>Name must not exceed 100 characters</value>
   </data>
@@ -146,6 +149,9 @@
   </data>
   <data name="DATABASE_ERROR" xml:space="preserve">
     <value>Failed to connect to database</value>
+  </data>
+  <data name="ID_MUST_BE_GUID" xml:space="preserve">
+    <value>Id must be a valid GUID</value>
   </data>
   <data name="UNKNOW_ERROR" xml:space="preserve">
     <value>Unknow error</value>

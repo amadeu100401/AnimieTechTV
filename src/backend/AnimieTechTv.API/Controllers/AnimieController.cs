@@ -1,4 +1,5 @@
 using AnimieTechTv.Application.Commad.Animie.Create;
+using AnimieTechTv.Application.Commad.Animie.Delete;
 using AnimieTechTv.Application.Commad.Animie.Get;
 using AnimieTechTv.Application.Commad.Animie.Update;
 using AnimieTechTv.Communication.Response.Animie;
@@ -78,8 +79,14 @@ public class AnimieController : BaseController
 
     [HttpDelete("delete")]
     [ProducesResponseType(StatusCodes.Status200OK)]
-    public IActionResult DeleteAnimie([FromQuery] string? id)
+    public async Task<IActionResult> DeleteAnimie([FromQuery] string id)
     {
+        _ = Guid.TryParse(id, out var parsedId);
+
+        var command = new DeleteAnimieCommand(parsedId);
+
+        await _mediator.Send(command);
+    
         return Ok();
     }
 }

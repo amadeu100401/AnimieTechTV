@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AnimieTechTv.Infrastructure.DataAccess.Repositories;
 
-public class AnimieRepository : IAnimieReadOnlyRepository, IAnimieWriteOnlyRepository
+public class AnimieRepository : IAnimieReadOnlyRepository, IAnimieWriteOnlyRepository, IAnimieDeleteRepository
 {
     private readonly AnimieTechTvDbContext _context;
 
@@ -52,4 +52,6 @@ public class AnimieRepository : IAnimieReadOnlyRepository, IAnimieWriteOnlyRepos
     }
 
     public async Task<Animies?> GetByIdAsync(Guid Id) => await _context.Animies.FirstOrDefaultAsync(a => a.Id == Id);
+
+    public async Task<bool> DeleteAnimieByIdAsync(Guid id) => await _context.Animies.Where(a => a.Id == id).ExecuteDeleteAsync() > 0;
 }
