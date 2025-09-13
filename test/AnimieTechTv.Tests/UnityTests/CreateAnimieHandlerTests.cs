@@ -1,4 +1,4 @@
-﻿using AnimieTechTv.Application.Commad.Animie;
+﻿using AnimieTechTv.Application.Commad.Animie.Create;
 using AnimieTechTv.Application.Handlers.Animie.CreateAnimie;
 using AnimieTechTv.Domain.Entities;
 using AnimieTechTv.Domain.Repositories;

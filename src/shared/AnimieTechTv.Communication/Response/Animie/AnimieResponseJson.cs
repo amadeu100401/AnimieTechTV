@@ -1,6 +1,6 @@
 ﻿namespace AnimieTechTv.Communication.Response.Animie;
 
-public class CreateAnimieResponseJson
+public class AnimieResponseJson
 {
     public Guid AnimieIdentification { get; set; }
     public string Name { get; set; }
