@@ -1,8 +1,10 @@
 ﻿
+using AnimieTechTv.Exceptions;
 using Dapper;
 using FluentMigrator.Runner;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 
 namespace AnimieTechTv.Infrastructure.Migrations;
 
@@ -10,13 +12,13 @@ public class DatabaseMigration
 {
     private static int tryCount = 0;
 
-    public static void Migrate(string connectionString, IServiceProvider serviceProvider)
+    public static void Migrate(string connectionString, IServiceProvider serviceProvider, ILogger logger)
     {
-        EnsureDatabaseCreated(connectionString);
+        EnsureDatabaseCreated(connectionString, logger);
         MigrateDatabase(serviceProvider);
     }
 
-    private static void EnsureDatabaseCreated(string connectionString)
+    private static void EnsureDatabaseCreated(string connectionString, ILogger logger)
     {
         try
         {
@@ -26,9 +28,15 @@ public class DatabaseMigration
         catch (Exception ex)
         {
             if (tryCount <= 3)
+            {
+                logger.LogInformation("Retry to connect with data base");
                 DoConnection(connectionString);
+            }
             else
+            {
+                logger.LogError(ResourceMessageExceptions.DATABASE_ERROR);
                 throw new Exception("Não foi possível conectar ao banco de dados.", ex);
+            }
         }
     }
 

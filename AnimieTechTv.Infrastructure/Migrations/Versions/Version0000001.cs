@@ -7,13 +7,13 @@ public class Version0000001 : VersionBase
 {
     public override void Up()
     {
-        var schema = "catalog";
+        var schema = SchemaNames.CATALOG_SCHEMA;
 
         Create.Schema(schema);
 
         CreateTable("animies", schema)
             .WithColumn("Name").AsString(150).NotNullable()
             .WithColumn("Director").AsString(150).NotNullable()
-            .WithColumn("Description").AsString(int.MaxValue).NotNullable();
+            .WithColumn("Resume").AsString(int.MaxValue).NotNullable();
     }
 }

@@ -61,6 +61,15 @@ namespace AnimieTechTv.Exceptions {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Animie already registered.
+        /// </summary>
+        public static string ANIMIE_ALREADY_ADDED {
+            get {
+                return ResourceManager.GetString("ANIMIE_ALREADY_ADDED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Name must not exceed 100 characters.
         /// </summary>
         public static string ANIMIE_CHARACTER {
@@ -102,6 +111,15 @@ namespace AnimieTechTv.Exceptions {
         public static string ANIMIE_RESUME_CHARACTER {
             get {
                 return ResourceManager.GetString("ANIMIE_RESUME_CHARACTER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to connect to database.
+        /// </summary>
+        public static string DATABASE_ERROR {
+            get {
+                return ResourceManager.GetString("DATABASE_ERROR", resourceCulture);
             }
         }
         
