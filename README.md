@@ -42,6 +42,7 @@ A aplicação está organizada em 4 camadas:
    - Depende apenas de **Domain** e bibliotecas externas.
 
 **Diagrama simplificado:**
+![Mapa da arquitetura](assets/map.jpg)
 
 ## 🐳 Rodando o AnimieTechTV Localmente com Docker
 
