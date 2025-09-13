@@ -129,11 +129,17 @@
   <data name="ANIMIE_DIRECTOR_NAME_REQUIRED" xml:space="preserve">
     <value>Director is required</value>
   </data>
+  <data name="ANIMIE_ID_REQUIRED" xml:space="preserve">
+    <value>The Animie ID is required</value>
+  </data>
   <data name="ANIMIE_NAME_IS_REQUIRED" xml:space="preserve">
     <value>Animie name is required</value>
   </data>
   <data name="ANIMIE_NOT_FOUNDED_BY_FILTER" xml:space="preserve">
     <value>No animies found with the provided filters</value>
+  </data>
+  <data name="ANIMIE_NOT_FOUNDED_BY_ID" xml:space="preserve">
+    <value>Animie not founded using ID</value>
   </data>
   <data name="ANIMIE_RESUME_CHARACTER" xml:space="preserve">
     <value>Resume must not exceed 1000 characters</value>

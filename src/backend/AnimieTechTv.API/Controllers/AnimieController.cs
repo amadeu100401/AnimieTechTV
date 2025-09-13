@@ -1,22 +1,20 @@
 using AnimieTechTv.Application.Commad.Animie.Create;
 using AnimieTechTv.Application.Commad.Animie.Get;
+using AnimieTechTv.Application.Commad.Animie.Update;
 using AnimieTechTv.Communication.Response.Animie;
 using AnimieTechTv.Domain.DTOs;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
 
 namespace AnimieTechTv.API.Controllers;
 
 public class AnimieController : BaseController
 {
     private readonly IMediator _mediator;
-    private readonly ILogger<AnimieController> _logger;
 
-    public AnimieController(ILogger<AnimieController> logger, IMediator mediator)
+    public AnimieController(IMediator mediator)
     {
         _mediator = mediator;
-        _logger = logger;
     }
 
     [HttpPost]
@@ -65,16 +63,22 @@ public class AnimieController : BaseController
         return Ok(response);
     }
 
-    [HttpPut("{id}")]
+    [HttpPut("{id:guid}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
-    public IActionResult UpdateAnimie(Guid id, [FromBody] CreateAnimieCommand request)
+    public async Task<IActionResult> UpdateAnimie(
+        Guid id, 
+        [FromBody] UpdateAnimieInfoCommand request)
     {
-        return Ok(request);
+        request.Id = id;
+
+        var response = await _mediator.Send(request);
+
+        return Ok(response);
     }
 
     [HttpDelete("delete")]
     [ProducesResponseType(StatusCodes.Status200OK)]
-    public IActionResult DeleteAnimie([FromQuery] string? name, [FromQuery] string? id)
+    public IActionResult DeleteAnimie([FromQuery] string? id)
     {
         return Ok();
     }
