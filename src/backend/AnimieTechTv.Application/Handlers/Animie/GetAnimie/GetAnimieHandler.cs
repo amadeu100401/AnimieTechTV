@@ -4,6 +4,7 @@ using AnimieTechTv.Communication.Response.Animie;
 using AnimieTechTv.Domain.DTOs;
 using AnimieTechTv.Domain.Repositories.Animie;
 using AnimieTechTv.Exceptions;
+using AnimieTechTv.Exceptions.ExceptionsBase;
 using MediatR;
 using Microsoft.Extensions.Logging;
 
@@ -22,7 +23,9 @@ public class GetAnimieHandler : IRequestHandler<GetAnimieCommand, GetAnimieRespo
 
     public async Task<GetAnimieResponseJson> Handle(GetAnimieCommand request, CancellationToken cancellationToken)
     {
-        var isToGetAll = string.IsNullOrEmpty(request.Name) && string.IsNullOrEmpty(request.Director);
+        var pagination = request.Pagination;
+
+        var isToGetAll = pagination == null;
 
         var response = isToGetAll ? await GetAllAnimies(request.Pagination) : await GetAnimieByFilter(request);
 
@@ -63,6 +66,8 @@ public class GetAnimieHandler : IRequestHandler<GetAnimieCommand, GetAnimieRespo
 
     private async Task<GetAnimieResponseJson> GetAnimieByFilter(GetAnimieCommand request)
     {
+        ValidateFilters(request);
+
         var filters = new GetAnimieFilterDTO(request.Id, request.Name, request.Director);
 
         var response = await _animieReadOnlyRepository.GetAnimieByFilter(filters);
@@ -83,5 +88,15 @@ public class GetAnimieHandler : IRequestHandler<GetAnimieCommand, GetAnimieRespo
                 Resume = a.Resume
             })]
         };
+    }
+
+    private void ValidateFilters(GetAnimieCommand request)
+    {
+        var isAllFiltersNull = request.Id == null &&
+                           string.IsNullOrWhiteSpace(request.Name) &&
+                           string.IsNullOrWhiteSpace(request.Director);
+
+        if (isAllFiltersNull)
+            throw new ErrorOnValidation(ResourceMessageExceptions.ALL_FILTERS_ARE_NULL);
     }
 }

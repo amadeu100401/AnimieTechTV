@@ -77,16 +77,18 @@ public class AnimieController : BaseController
         return Ok(response);
     }
 
-    [HttpDelete("delete")]
+    [HttpDelete("{id:guid}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
-    public async Task<IActionResult> DeleteAnimie([FromQuery] string id)
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> DeleteAnimie([FromRoute] Guid id)
     {
-        _ = Guid.TryParse(id, out var parsedId);
+        if (id == Guid.Empty)
+            return BadRequest("ID inválido");
 
-        var command = new DeleteAnimieCommand(parsedId);
+        var command = new DeleteAnimieCommand(id);
 
         await _mediator.Send(command);
-    
+
         return Ok();
     }
 }
