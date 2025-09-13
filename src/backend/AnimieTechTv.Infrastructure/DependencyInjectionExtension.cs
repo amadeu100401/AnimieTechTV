@@ -34,6 +34,7 @@ public static class DependencyInjectionExtension
     {
         services.AddScoped<IAnimieReadOnlyRepository, AnimieRepository>();
         services.AddScoped<IAnimieWriteOnlyRepository, AnimieRepository>();
+        services.AddScoped<IAnimieDeleteRepository, AnimieRepository>();
 
         services.AddScoped<IUnityWork, UnityWork>();
     }

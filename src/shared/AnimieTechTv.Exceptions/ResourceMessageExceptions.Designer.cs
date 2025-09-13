@@ -70,6 +70,15 @@ namespace AnimieTechTv.Exceptions {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error on delete animie.
+        /// </summary>
+        public static string ANIMIE_ERROR_ON_DELETED {
+            get {
+                return ResourceManager.GetString("ANIMIE_CANNOT_BE_DELETED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Name must not exceed 100 characters.
         /// </summary>
         public static string ANIMIE_CHARACTER {
@@ -147,6 +156,15 @@ namespace AnimieTechTv.Exceptions {
         public static string DATABASE_ERROR {
             get {
                 return ResourceManager.GetString("DATABASE_ERROR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Id must be a valid GUID.
+        /// </summary>
+        public static string ID_MUST_BE_GUID {
+            get {
+                return ResourceManager.GetString("ID_MUST_BE_GUID", resourceCulture);
             }
         }
         
