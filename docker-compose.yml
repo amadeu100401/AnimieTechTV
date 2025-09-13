@@ -10,6 +10,9 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
       - ConnectionStrings__Default=Server=db,1433;Database=animiedb;User Id=sa;Password=Your_strong_password123!;TrustServerCertificate=True;
+    volumes:
+      - ./logs:/app/logs
+    command: ["dotnet", "AnimieTechTv.API.dll"]
 
   db:
     image: mcr.microsoft.com/mssql/server:2022-latest

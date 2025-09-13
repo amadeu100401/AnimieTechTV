@@ -8,4 +8,9 @@ public class ErrorOnValidation : AnimieTechTVException
     {
         ErrorMessage = errorMessage;
     }
+
+    public ErrorOnValidation(string errorMessage) : base(string.Empty)
+    {
+        ErrorMessage = new List<string> { errorMessage };
+    }
 }

@@ -1,7 +1,6 @@
 using AnimieTechTv.Application.Commad.Animie;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
 
 namespace AnimieTechTv.API.Controllers;
 
@@ -20,9 +19,9 @@ public class AnimieController : BaseController
     [ProducesResponseType(typeof(Guid), StatusCodes.Status201Created)]
     public async Task<IActionResult> CreateAnimie([FromBody] CreateAnimieCommand request)
     {
-        var id = await _mediator.Send(request); 
+        var response = await _mediator.Send(request); 
 
-        return Created(string.Empty ,  id);
+        return Created(string.Empty , response);
     }
 
     [HttpPut("{id}")]
