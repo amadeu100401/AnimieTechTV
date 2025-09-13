@@ -13,9 +13,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AnimieTechTv.Communication\AnimieTechTv.Communication.csproj" />
+    <ProjectReference Include="..\..\shared\AnimieTechTv.Communication\AnimieTechTv.Communication.csproj" />
+    <ProjectReference Include="..\..\shared\AnimieTechTv.Exceptions\AnimieTechTv.Exceptions.csproj" />
     <ProjectReference Include="..\AnimieTechTv.Domain\AnimieTechTv.Domain.csproj" />
-    <ProjectReference Include="..\AnimieTechTv.Exceptions\AnimieTechTv.Exceptions.csproj" />
   </ItemGroup>
 
 </Project>

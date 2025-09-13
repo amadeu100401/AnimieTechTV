@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AnimieTechTv.Application\AnimieTechTv.Application.csproj" />
+    <ProjectReference Include="..\src\backend\AnimieTechTv.Application\AnimieTechTv.Application.csproj" />
   </ItemGroup>
 
 </Project>

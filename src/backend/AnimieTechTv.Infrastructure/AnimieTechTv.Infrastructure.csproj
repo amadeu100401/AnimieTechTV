@@ -17,7 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AnimieTechTv.Domain\AnimieTechTv.Domain.csproj" />
-    <ProjectReference Include="..\AnimieTechTv.Exceptions\AnimieTechTv.Exceptions.csproj" />
+    <ProjectReference Include="..\..\shared\AnimieTechTv.Exceptions\AnimieTechTv.Exceptions.csproj" />
   </ItemGroup>
 
 </Project>
