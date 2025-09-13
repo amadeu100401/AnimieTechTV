@@ -97,6 +97,15 @@ namespace AnimieTechTv.Exceptions {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The Animie ID is required.
+        /// </summary>
+        public static string ANIMIE_ID_REQUIRED {
+            get {
+                return ResourceManager.GetString("ANIMIE_ID_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Animie name is required.
         /// </summary>
         public static string ANIMIE_NAME_IS_REQUIRED {
@@ -111,6 +120,15 @@ namespace AnimieTechTv.Exceptions {
         public static string ANIMIE_NOT_FOUNDED_BY_FILTER {
             get {
                 return ResourceManager.GetString("ANIMIE_NOT_FOUNDED_BY_FILTER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Animie not founded using ID.
+        /// </summary>
+        public static string ANIMIE_NOT_FOUNDED_BY_ID {
+            get {
+                return ResourceManager.GetString("ANIMIE_NOT_FOUNDED_BY_ID", resourceCulture);
             }
         }
         

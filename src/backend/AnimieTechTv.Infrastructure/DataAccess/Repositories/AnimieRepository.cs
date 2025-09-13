@@ -2,7 +2,6 @@
 using AnimieTechTv.Domain.Entities;
 using AnimieTechTv.Domain.Repositories.Animie;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
 
 namespace AnimieTechTv.Infrastructure.DataAccess.Repositories;
 
@@ -51,4 +50,6 @@ public class AnimieRepository : IAnimieReadOnlyRepository, IAnimieWriteOnlyRepos
             .OrderBy(a => a.Name)
             .ToListAsync();
     }
+
+    public async Task<Animies?> GetByIdAsync(Guid Id) => await _context.Animies.FirstOrDefaultAsync(a => a.Id == Id);
 }
