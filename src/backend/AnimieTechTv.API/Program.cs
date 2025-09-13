@@ -8,24 +8,19 @@ using Serilog.Events;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
+// Serviços 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddControllers()
-    .ConfigureApiBehaviorOptions(options =>
-    {
-        options.SuppressModelStateInvalidFilter = true;
-    });
-
+// Application & Infrastructure
 builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructure(builder.Configuration);
 
+// Exception Filter
 builder.Services.AddMvc(options => options.Filters.Add(typeof(ExceptionFilter)));
 
+// Logging
 var logPath = Path.Combine(AppContext.BaseDirectory, "logs");
 if (!Directory.Exists(logPath))
 {
@@ -48,46 +43,55 @@ Log.Logger = new LoggerConfiguration()
     .CreateLogger();
 
 builder.Services.AddSingleton(Log.Logger);
-
 builder.Host.UseSerilog();
 
+// CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowSwagger", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
+
+// Kestrel 
 builder.WebHost.ConfigureKestrel(options =>
-{ 
-    options.ListenAnyIP(8080);
+{
+    options.ListenAnyIP(8080); // HTTP na porta 8080
 });
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-//if (app.Environment.IsDevelopment())
-//{
-//    app.UseSwagger();
-//    app.UseSwaggerUI();
-//}
-
-app.UseSwagger();
-app.UseSwaggerUI(c =>
+// Pipeline
+if (app.Environment.IsDevelopment())
 {
-    c.SwaggerEndpoint("/swagger/v1/swagger.json", "AnimieTechTv API v1");
-    c.RoutePrefix = string.Empty;
-}); ;
+    app.UseSwagger();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "AnimieTechTv API v1");
+        c.RoutePrefix = string.Empty;
+    });
+}
 
-app.UseHttpsRedirection();
+// Aplicar CORS
+app.UseCors("AllowSwagger");
 
 app.UseAuthorization();
 
 app.MapControllers();
 
+// Database Migration
 MigrateDatabase();
 
 app.Run();
 
+// Método de Migrations
 void MigrateDatabase()
 {
     var logger = app.Services.GetRequiredService<ILogger<DatabaseMigration>>();
-
     var configuration = builder.Configuration;
-
     var serviceScope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope();
 
     DatabaseMigration.Migrate(configuration.ConnectionString(), serviceScope.ServiceProvider, logger);

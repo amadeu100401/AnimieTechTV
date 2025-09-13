@@ -106,6 +106,15 @@ namespace AnimieTechTv.Exceptions {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No animies found with the provided filters.
+        /// </summary>
+        public static string ANIMIE_NOT_FOUNDED_BY_FILTER {
+            get {
+                return ResourceManager.GetString("ANIMIE_NOT_FOUNDED_BY_FILTER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Resume must not exceed 1000 characters.
         /// </summary>
         public static string ANIMIE_RESUME_CHARACTER {

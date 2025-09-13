@@ -1,4 +1,4 @@
-﻿using AnimieTechTv.Application.Commad.Animie;
+﻿using AnimieTechTv.Application.Commad.Animie.Create;
 using AnimieTechTv.Communication.Response.Animie;
 using AnimieTechTv.Domain.Entities;
 using AnimieTechTv.Domain.Repositories;
@@ -10,7 +10,7 @@ using Microsoft.Extensions.Logging;
 
 namespace AnimieTechTv.Application.Handlers.Animie.CreateAnimie;
 
-public class CreateAnimieHandler : IRequestHandler<CreateAnimieCommand, CreateAnimieResponseJson>
+public class CreateAnimieHandler : IRequestHandler<CreateAnimieCommand, AnimieResponseJson>
 {
     private readonly IAnimieReadOnlyRepository _animieReadOnlyRepository;
     private readonly IAnimieWriteOnlyRepository _animieWriteOnlyRepository;
@@ -25,7 +25,7 @@ public class CreateAnimieHandler : IRequestHandler<CreateAnimieCommand, CreateAn
         _logger = logger;
     }
 
-    public async Task<CreateAnimieResponseJson> Handle(CreateAnimieCommand request, CancellationToken cancellationToken)
+    public async Task<AnimieResponseJson> Handle(CreateAnimieCommand request, CancellationToken cancellationToken)
     {
         await Validate(request);
         var animie = ToEntity(request);
@@ -34,7 +34,7 @@ public class CreateAnimieHandler : IRequestHandler<CreateAnimieCommand, CreateAn
 
         await _unityWork.Commit();
 
-        return new CreateAnimieResponseJson
+        return new AnimieResponseJson
         {
             AnimieIdentification = animie.Id,
             Director = animie.Director,

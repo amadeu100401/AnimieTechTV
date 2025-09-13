@@ -1,7 +1,7 @@
 ﻿using AnimieTechTv.Exceptions;
 using FluentValidation;
 
-namespace AnimieTechTv.Application.Commad.Animie;
+namespace AnimieTechTv.Application.Commad.Animie.Create;
 
 public class CreateAnimieCommandValidator : AbstractValidator<CreateAnimieCommand>
 {

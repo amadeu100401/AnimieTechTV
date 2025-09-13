@@ -1,9 +1,9 @@
 ﻿using AnimieTechTv.Communication.Response.Animie;
 using MediatR;
 
-namespace AnimieTechTv.Application.Commad.Animie;
+namespace AnimieTechTv.Application.Commad.Animie.Create;
 
-public class CreateAnimieCommand : IRequest<CreateAnimieResponseJson>
+public class CreateAnimieCommand : IRequest<AnimieResponseJson>
 {
     public string Name { get; set; } = string.Empty;
     public string Director { get; set; } = string.Empty;
