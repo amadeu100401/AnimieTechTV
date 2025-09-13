@@ -44,7 +44,7 @@ public class AnimieController : BaseController
         return Ok(response);
     }
 
-    [HttpGet("search")]
+    [HttpGet]
     [ProducesResponseType(typeof(GetAnimieResponseJson), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> GetAnimieByFilter(
