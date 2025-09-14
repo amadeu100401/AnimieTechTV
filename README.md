@@ -62,7 +62,7 @@ Antes de começar, verifique se você tem instalado:
 
 #### 1️⃣ Clone o repositório
 ```bash
-git clone https://github.com/seu-usuario/AnimieTechTV.git
+git clone https://github.com/amadeu100401/AnimieTechTV.git
 cd AnimieTechTV
 ```
 #### 1️⃣ Suba os containers
