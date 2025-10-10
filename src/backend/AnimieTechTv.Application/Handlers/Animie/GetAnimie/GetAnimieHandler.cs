@@ -1,7 +1,7 @@
 ﻿using AnimieTechTv.Application.Commad.Animie.Get;
 using AnimieTechTv.Communication.Response;
 using AnimieTechTv.Communication.Response.Animie;
-using AnimieTechTv.Domain.DTOs;
+using AnimieTechTv.Domain.DTOs.LocalAnimie;
 using AnimieTechTv.Domain.Repositories.Animie;
 using AnimieTechTv.Exceptions;
 using AnimieTechTv.Exceptions.ExceptionsBase;

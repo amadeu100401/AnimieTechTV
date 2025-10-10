@@ -1,6 +1,6 @@
 ﻿using AnimieTechTv.Application.Commad.Animie.Create;
 using AnimieTechTv.Application.Commad.Animie.Get;
-using AnimieTechTv.Domain.DTOs;
+using AnimieTechTv.Domain.DTOs.LocalAnimie;
 using Bogus;
 
 namespace AnimieTechTv.Tests.Utils;

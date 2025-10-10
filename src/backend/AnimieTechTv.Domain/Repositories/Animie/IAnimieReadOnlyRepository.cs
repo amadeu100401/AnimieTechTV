@@ -1,4 +1,4 @@
-﻿using AnimieTechTv.Domain.DTOs;
+﻿using AnimieTechTv.Domain.DTOs.LocalAnimie;
 using AnimieTechTv.Domain.Entities;
 
 namespace AnimieTechTv.Domain.Repositories.Animie;

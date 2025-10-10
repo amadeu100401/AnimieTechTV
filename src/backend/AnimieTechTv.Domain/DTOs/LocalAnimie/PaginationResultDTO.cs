@@ -1,6 +1,6 @@
 ﻿using AnimieTechTv.Domain.Entities;
 
-namespace AnimieTechTv.Domain.DTOs;
+namespace AnimieTechTv.Domain.DTOs.LocalAnimie;
 
 public class PaginationResultDTO<T>
 {

@@ -4,6 +4,7 @@ using AnimieTechTv.Application.Commad.Animie.Get;
 using AnimieTechTv.Application.Commad.Animie.Update;
 using AnimieTechTv.Communication.Response.Animie;
 using AnimieTechTv.Domain.DTOs;
+using AnimieTechTv.Domain.DTOs.LocalAnimie;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -27,6 +28,14 @@ public class AnimieController : BaseController
         return Created(string.Empty , response);
     }
 
+    [HttpGet("list")]
+    [ProducesResponseType(typeof(GetAnimieListResponseJson), StatusCodes.Status200OK)]
+    public async Task<IActionResult> GetAnimieList()
+    {
+        var response = await _mediator.Send(new GetAnimieListCommand());
+        return Ok(response);
+    }
+
     [HttpGet]
     [ProducesResponseType(typeof(GetAnimieResponseJson), StatusCodes.Status200OK)]
     public async Task<IActionResult> GetAllAnimies(
@@ -44,7 +53,7 @@ public class AnimieController : BaseController
         return Ok(response);
     }
 
-    [HttpGet]
+    [HttpGet("filter")]
     [ProducesResponseType(typeof(GetAnimieResponseJson), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> GetAnimieByFilter(

@@ -1,5 +1,7 @@
-﻿using AnimieTechTv.Domain.Repositories;
+﻿using AnimieTechTv.Domain.Communication.Http;
+using AnimieTechTv.Domain.Repositories;
 using AnimieTechTv.Domain.Repositories.Animie;
+using AnimieTechTv.Infrastructure.Communication.Http;
 using AnimieTechTv.Infrastructure.DataAccess;
 using AnimieTechTv.Infrastructure.DataAccess.Repositories;
 using AnimieTechTv.Infrastructure.Extensions;
@@ -18,6 +20,7 @@ public static class DependencyInjectionExtension
         AddDbContext(services, configuration);
         AddRepository(services);
         AddFluentMigratior(services, configuration);
+        AddHttpCommunicationRequest(services);
     }
 
     private static void AddDbContext(IServiceCollection services, IConfiguration configuration)   
@@ -49,5 +52,10 @@ public static class DependencyInjectionExtension
                     .ScanIn(Assembly.Load("AnimieTechTv.Infrastructure"))
                     .For.All();
             });
+    }
+
+    private static void AddHttpCommunicationRequest(IServiceCollection services) 
+    {
+        services.AddScoped<IJikanAPI, JikanAPI>();
     }
 }
