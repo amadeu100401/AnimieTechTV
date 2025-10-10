@@ -1,6 +1,7 @@
 ﻿using AnimieTechTv.Application.Commad.Animie.Get;
 using AnimieTechTv.Application.Handlers.Animie.GetAnimie;
 using AnimieTechTv.Domain.DTOs;
+using AnimieTechTv.Domain.DTOs.LocalAnimie;
 using AnimieTechTv.Domain.Entities;
 using AnimieTechTv.Domain.Repositories.Animie;
 using AnimieTechTv.Tests.Utils;

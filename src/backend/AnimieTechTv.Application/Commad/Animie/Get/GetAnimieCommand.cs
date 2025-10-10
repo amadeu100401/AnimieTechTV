@@ -1,5 +1,5 @@
 ﻿using AnimieTechTv.Communication.Response.Animie;
-using AnimieTechTv.Domain.DTOs;
+using AnimieTechTv.Domain.DTOs.LocalAnimie;
 using MediatR;
 
 namespace AnimieTechTv.Application.Commad.Animie.Get;
