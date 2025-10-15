@@ -3,7 +3,6 @@ using AnimieTechTv.Application.Commad.Animie.Delete;
 using AnimieTechTv.Application.Commad.Animie.Get;
 using AnimieTechTv.Application.Commad.Animie.Update;
 using AnimieTechTv.Communication.Response.Animie;
-using AnimieTechTv.Domain.DTOs;
 using AnimieTechTv.Domain.DTOs.LocalAnimie;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -30,9 +29,11 @@ public class AnimieController : BaseController
 
     [HttpGet("list")]
     [ProducesResponseType(typeof(GetAnimieListResponseJson), StatusCodes.Status200OK)]
-    public async Task<IActionResult> GetAnimieList()
+    public async Task<IActionResult> GetAnimieList(
+        [FromQuery] int page = 1,
+        [FromQuery] int pageSize = 10)
     {
-        var response = await _mediator.Send(new GetAnimieListCommand());
+        var response = await _mediator.Send(new GetAnimieListCommand(page, pageSize));
         return Ok(response);
     }
 

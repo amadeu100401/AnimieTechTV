@@ -6,5 +6,11 @@ namespace AnimieTechTv.Application.Commad.Animie.Get;
 public class GetAnimieListCommand : IRequest<GetAnimieListResponseJson>
 {
     public int Page { get; set; } = 1;
-    public int Limit { get; set; } = 10;    
+    public int Limit { get; set; } = 10;
+
+    public GetAnimieListCommand(int? page, int? limit)
+    {
+        Page = page ?? 1;
+        Limit = limit ?? 10;
+    }
 }
